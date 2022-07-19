@@ -1,0 +1,48 @@
+module.exports = {
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+    },
+    extend: {
+      spacing: {
+        72: "18rem",
+        84: "21rem",
+        96: "24rem",
+      },
+      boxShadow: {
+        custom: "0px 0px 30px rgba(255, 255, 255, 0.19)",
+      },
+      fontFamily: {
+        sans: "Roboto, sans-serify",
+      },
+      colors: {
+        green: {
+          300: "#00B37E",
+          500: "#00875F",
+          700: "#015F43",
+        },
+        blue: {
+          500: "#81D8F7",
+        },
+        orange: {
+          500: "#FBA94C",
+        },
+        red: {
+          500: "#F75A68",
+        },
+        gray: {
+          100: "#E1E1E6",
+          200: "#C4C4CC",
+          300: "#8D8D99",
+          500: "#323238",
+          600: "#29292E",
+          700: "#121214",
+          900: "#09090A",
+        },
+      },
+    },
+  },
+  variants: {},
+  plugins: [],
+};
