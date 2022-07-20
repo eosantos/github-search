@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaGithub, FaArrowLeft } from "react-icons/fa";
 import githubContext from "../../context/github/githubContext";
+import { format } from "date-fns";
 
 const User = ({
   match: {
@@ -10,8 +11,9 @@ const User = ({
 }) => {
   const GithubContext = useContext(githubContext);
   const { getSingleUser, user, getRepos } = GithubContext;
-
   const { avatar_url, name, followers, public_repos, html_url } = user;
+
+  const created_at = format(new Date(), "dd.MM.yyyy");
 
   useEffect(() => {
     getSingleUser(login);
@@ -36,6 +38,9 @@ const User = ({
             </strong>
             <strong className="bg-gray-700 p-2 m-2 rounded text-white">
               Seguidores: {followers}
+            </strong>
+            <strong className="bg-gray-700 p-2 m-2 rounded text-white">
+              Desde: {created_at}
             </strong>
           </div>
           <div className="flex justify-start flex-col  p-6 mt-2">
