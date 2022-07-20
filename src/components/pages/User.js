@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { FaGithub, FaArrowLeft } from "react-icons/fa";
 import githubContext from "../../context/github/githubContext";
 
 const User = ({
@@ -22,8 +22,8 @@ const User = ({
   return (
     <>
       <Link to="/" className="text-white">
-        <div className="rounded-full h-12 border-2 border-gray-700 bg-black flex items-center justify-center my-10">
-          Voltar
+        <div className="w-16 rounded h-12 border-2 border-gray-700 bg-black flex items-center justify-center my-10">
+          <FaArrowLeft />
         </div>
       </Link>
       <div className="grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
@@ -40,9 +40,11 @@ const User = ({
           </div>
           <div className="flex justify-start flex-col  p-6 mt-2">
             <a
-              className="rounded-full fa fa-github 2lx bg-black text-white p-4 mt-2 self-center"
+              className="rounded-full 2lx bg-black text-white p-4 mt-2 self-center"
               href={html_url}
-            ></a>
+            >
+              <FaGithub />
+            </a>
           </div>
         </div>
       </div>
