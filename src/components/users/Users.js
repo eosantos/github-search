@@ -1,16 +1,21 @@
+import React, { useContext } from "react";
 import UserItems from "./UserItems";
 import spiner from "../../loading.gif";
 import Search from "../layout/Search";
+import githubContext from "../../context/github/githubContext";
 
 const Users = () => {
+  const GithubContext = useContext(githubContext);
+  const { loading, searchUser, users } = GithubContext;
   return (
     <>
       <div className="px-4 bg-gray-900">
-        <Search />
+        <Search searchUser={searchUser} />
       </div>
       <div className={tailwind.grid}>
-        {<img src={spiner} alt="Spiner" className="mx-auto" />}
-        {(user) => <UserItems key={user.node_id} user={user} />}
+        {loading && <img src={spiner} alt="Spiner" className="mx-auto" />}
+        {users &&
+          users.map((user) => <UserItems key={user.node_id} user={user} />)}
       </div>
     </>
   );

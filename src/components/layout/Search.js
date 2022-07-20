@@ -41,7 +41,7 @@ const Search = ({ searchUser }) => {
 };
 
 const tailwind = {
-  title: "text-2xl mb-2 mt-3 text-black",
+  title: "text-2xl mb-2 mt-3 text-gray-300",
   searchInput: "w-full rounded h-10 border-2 mb-6",
   button:
     "w-full h-10 rounded-full border-2 border-gray-700 bg-black text-gray-400",
