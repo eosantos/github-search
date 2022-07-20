@@ -1,4 +1,4 @@
-import { GET_USER, GET_REPOS, SET_LOADING, SEARCH_USERS } from "../types";
+import { GET_USER, SET_LOADING, SEARCH_USERS } from "../types";
 
 export default (state, { type, payload }) => {
   switch (type) {

@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import axios from "axios";
 import githubContext from "./githubContext";
 import githubReducer from "./GithubReducer";
-import { GET_USER, GET_REPOS, SET_LOADING, SEARCH_USERS } from "../types";
+import { GET_USER, SET_LOADING, SEARCH_USERS } from "../types";
 
 const GithubState = (props) => {
   const CLIENT_ID = process.env.CLIENT_ID;
@@ -11,7 +11,6 @@ const GithubState = (props) => {
   const initialState = {
     user: {},
     users: [],
-    repos: [],
     loading: false,
   };
 
@@ -32,14 +31,6 @@ const GithubState = (props) => {
     dispatch({ type: GET_USER, payload: request.data });
   };
 
-  const getRepos = async (url) => {
-    const repos = await axios.get(
-      `${url}?per_page=5&created:asc?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`
-    );
-    const repoList = await repos.data;
-    dispatch({ type: GET_REPOS, payload: [...repoList] });
-  };
-
   const setLoading = () => dispatch({ type: SET_LOADING });
   return (
     <githubContext.Provider
@@ -47,7 +38,6 @@ const GithubState = (props) => {
         ...state,
         searchUser,
         getSingleUser,
-        getRepos,
       }}
     >
       {props.children}
