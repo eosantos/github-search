@@ -11,9 +11,13 @@ const User = ({
 }) => {
   const GithubContext = useContext(githubContext);
   const { getSingleUser, user, getRepos } = GithubContext;
-  const { avatar_url, name, followers, public_repos, html_url } = user;
+  const { avatar_url, name, followers, public_repos, html_url, created_at } =
+    user;
 
-  const created_at = format(new Date(), "dd / MM / yyyy");
+  // let created_at2 = user.created_at;
+  // created_at2 = created_at2.getFullYear();
+
+  // const created_at = format(new Date(), "dd/MM/yyyy");
 
   useEffect(() => {
     getSingleUser(login);
